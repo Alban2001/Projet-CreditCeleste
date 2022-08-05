@@ -1,0 +1,87 @@
+DROP DATABASE IF EXISTS CreditCelesteA1;
+
+CREATE DATABASE CreditCelesteA1;
+
+GO
+
+USE CreditCelesteA1;
+
+DROP TABLE IF EXISTS Vendeur;
+DROP TABLE IF EXISTS Client;
+DROP TABLE IF EXISTS Niveau;
+DROP TABLE IF EXISTS Mensualite;
+DROP TABLE IF EXISTS Pallier;
+DROP TABLE IF EXISTS Credit;
+DROP TABLE IF EXISTS Remuneration;
+
+CREATE TABLE VENDEUR(
+CodeVendeur INTEGER NOT NULL IDENTITY(1,1),
+NomVendeur VARCHAR(50) NOT NULL,
+PrenomVendeur VARCHAR(50) NOT NULL,
+SalairePrevuMois DECIMAL(15,2) NOT NULL,
+CONSTRAINT pk_CodeVendeur PRIMARY KEY(CodeVendeur)
+);
+
+CREATE TABLE CLIENT(
+CodeClient INTEGER NOT NULL IDENTITY(1,1),
+NomClient VARCHAR(50) NOT NULL,
+PrenomClient VARCHAR(50) NOT NULL,
+CONSTRAINT pk_CodeClient PRIMARY KEY(CodeClient)
+);
+
+CREATE TABLE NIVEAU(
+CodeNiveau INTEGER NOT NULL,
+LibelleNiveau VARCHAR(50) NOT NULL,
+TauxNiveau INTEGER NOT NULL,
+CONSTRAINT pk_CodeNiveau PRIMARY KEY(CodeNiveau)
+);
+
+CREATE TABLE MENSUALITE(
+CodeMensualite VARCHAR(50) NOT NULL,
+NombreMoisMensualite INTEGER NOT NULL,
+TauxCommVdr INTEGER NOT NULL,
+CONSTRAINT pk_CodeMensualite PRIMARY KEY(CodeMensualite)
+);
+
+CREATE TABLE PALLIER(
+MtFinance INTEGER NOT NULL,
+CONSTRAINT pk_MtFinance PRIMARY KEY(MtFinance)
+);
+
+CREATE TABLE CREDIT(
+NumCredit INTEGER NOT NULL IDENTITY(1,1),
+MontantCredit DECIMAL(15, 2) NOT NULL,
+MensualiteCredit DECIMAL(15, 2) NOT NULL,
+RevenusVendeur DECIMAL(15, 2) NOT NULL,
+DateDebutCredit DATE NOT NULL,
+DateFinCredit DATE NOT NULL,
+CodeVendeur INTEGER NOT NULL,
+CodeClient INTEGER NOT NULL,
+CodeMensualite VARCHAR(50) NOT NULL,
+CodeNiveau INTEGER NOT NULL,
+CONSTRAINT pk_NumCredit PRIMARY KEY(NumCredit),
+CONSTRAINT fk_CodeVendeurCredit FOREIGN KEY(CodeVendeur) REFERENCES VENDEUR(CodeVendeur),
+CONSTRAINT fk_CodeClientCredit FOREIGN KEY(CodeClient) REFERENCES CLIENT(CodeClient),
+CONSTRAINT fk_CodeMensualiteCredit FOREIGN KEY(CodeMensualite) REFERENCES MENSUALITE(CodeMensualite),
+CONSTRAINT fk_CodeNiveauCredit FOREIGN KEY(CodeNiveau) REFERENCES NIVEAU(CodeNiveau)
+);
+
+CREATE TABLE REMUNERATION(
+CodeNiveau INTEGER NOT NULL,
+MtFinance INTEGER NOT NULL,
+TauxCC INTEGER NOT NULL,
+CONSTRAINT pk_Remuneration PRIMARY KEY(CodeNiveau, MtFinance),
+CONSTRAINT fk_CodeNiveauRemuneration FOREIGN KEY(CodeNiveau) REFERENCES NIVEAU(CodeNiveau),
+CONSTRAINT fk_MtFinanceRemuneration FOREIGN KEY(MtFinance) REFERENCES PALLIER(MtFinance)
+);
+
+INSERT INTO PALLIER VALUES (1000), (10000), (20000), (40000);
+
+INSERT INTO NIVEAU VALUES (1, 'Max', 4), (2, 'Normal', 3), (3, 'Plancher', 2), (4, 'Famille', 1);
+
+INSERT INTO MENSUALITE VALUES ('N1', 6, 1), ('N2', 12, 1), ('N3', 24, 1), ('N4', 36, 1), ('N5', 48, 2), ('N6', 60, 3);
+
+INSERT INTO REMUNERATION VALUES (1, 1000, 2), (1, 10000, 3), (1, 20000, 3), (1, 40000, 4), -- NIVEAU 1
+								(2, 1000, 3), (2, 10000, 4), (2, 20000, 4), (2, 40000, 5), -- NIVEAU 2
+								(3, 1000, 4), (3, 10000, 5), (3, 20000, 5), (3, 40000, 6), -- NIVEAU 3
+								(4, 1000, 5), (4, 10000, 6), (4, 20000, 6), (4, 40000, 7); -- NIVEAU 4

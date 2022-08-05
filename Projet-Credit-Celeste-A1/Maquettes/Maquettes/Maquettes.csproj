@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{73D7A25D-AE67-42D7-A27A-39B4521B473E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Maquettes</RootNamespace>
+    <AssemblyName>Maquettes</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Client\Client\bin\Debug\Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Credit, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Credit\Credit\bin\Debug\Credit.dll</HintPath>
+    </Reference>
+    <Reference Include="Facture">
+      <HintPath>..\..\Facture\Facture\bin\Debug\Facture.dll</HintPath>
+    </Reference>
+    <Reference Include="Panne">
+      <HintPath>..\..\Panne\Panne\bin\Debug\Panne.dll</HintPath>
+    </Reference>
+    <Reference Include="Piece">
+      <HintPath>..\..\Piece\Piece\bin\Debug\Piece.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Vendeur, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Vendeur\Vendeur\bin\Debug\Vendeur.dll</HintPath>
+    </Reference>
+    <Reference Include="Voiture, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Voiture\Voiture\bin\Debug\Voiture.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AffichageCredits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AffichageCredits.Designer.cs">
+      <DependentUpon>AffichageCredits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreditCelesteA1DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreditCelesteA1DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Globales.cs" />
+    <Compile Include="PageAccueil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PageAccueil.Designer.cs">
+      <DependentUpon>PageAccueil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageAjout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PageAjout.Designer.cs">
+      <DependentUpon>PageAjout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageAjoutPieces.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PageAjoutPieces.Designer.cs">
+      <DependentUpon>PageAjoutPieces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PagePrincipale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PagePrincipale.Designer.cs">
+      <DependentUpon>PagePrincipale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageVoiture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PageVoiture.Designer.cs">
+      <DependentUpon>PageVoiture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReparationVoiture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReparationVoiture.Designer.cs">
+      <DependentUpon>ReparationVoiture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Résumé AjoutClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Résumé AjoutClient.Designer.cs">
+      <DependentUpon>Résumé AjoutClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Résumé AjoutVendeur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Résumé AjoutVendeur.Designer.cs">
+      <DependentUpon>Résumé AjoutVendeur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Résumé AjoutVoiture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Résumé AjoutVoiture.Designer.cs">
+      <DependentUpon>Résumé AjoutVoiture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Résumé Crédit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Résumé Crédit.Designer.cs">
+      <DependentUpon>Résumé Crédit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Validation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Validation.Designer.cs">
+      <DependentUpon>Validation.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AffichageCredits.resx">
+      <DependentUpon>AffichageCredits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PageAccueil.resx">
+      <DependentUpon>PageAccueil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PageAjout.resx">
+      <DependentUpon>PageAjout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PageAjoutPieces.resx">
+      <DependentUpon>PageAjoutPieces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PagePrincipale.resx">
+      <DependentUpon>PagePrincipale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PageVoiture.resx">
+      <DependentUpon>PageVoiture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ReparationVoiture.resx">
+      <DependentUpon>ReparationVoiture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Résumé AjoutClient.resx">
+      <DependentUpon>Résumé AjoutClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Résumé AjoutVendeur.resx">
+      <DependentUpon>Résumé AjoutVendeur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Résumé AjoutVoiture.resx">
+      <DependentUpon>Résumé AjoutVoiture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Résumé Crédit.resx">
+      <DependentUpon>Résumé Crédit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Validation.resx">
+      <DependentUpon>Validation.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="CreditCelesteA1DataSet.xsc">
+      <DependentUpon>CreditCelesteA1DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CreditCelesteA1DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CreditCelesteA1DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CreditCelesteA1DataSet.xss">
+      <DependentUpon>CreditCelesteA1DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
